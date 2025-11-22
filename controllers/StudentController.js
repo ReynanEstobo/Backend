@@ -16,7 +16,7 @@ export const fetchStudents = async (req, res) => {
 export const createStudent = async (req, res) => {
   const { name, srCode, course } = req.body;
   try {
-    const studentID = await StudentModel.insertStudent(name, srCode, course);
+    const studentID = await StudentModel.createStudent(name, srCode, course);
     res.status(201).json({ success: true, message: studentID });
   } catch (e) {
     console.log(e);

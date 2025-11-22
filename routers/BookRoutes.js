@@ -1,8 +1,10 @@
 import * as BookController from "../controllers/BookController.js";
 import express from "express";
+import authHandler from "../middleware/authHandler.js"; 
 
 const bookRoutes = express.Router();
 
+bookRoutes.use(authHandler);
 bookRoutes.get("/all", BookController.fetchBooks);
 bookRoutes.post("/new", BookController.createBook);
 bookRoutes.put("/edit/:bookId", BookController.editBook);
